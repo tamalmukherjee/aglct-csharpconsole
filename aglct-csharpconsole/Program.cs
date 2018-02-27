@@ -1,12 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace aglct_csharpconsole
 {
@@ -16,10 +13,9 @@ namespace aglct_csharpconsole
         {
             Console.WriteLine("Please wait, searching for cats...");
             var data = GetDataFromFile();
-            var data1 = data.GroupBy(x => x.gender).Select(g => new {
-                OwnerGender = g.Key,
-                Cats = g.Where(i => i.pets != null).SelectMany(o => o.pets.Where(p => p.type.Equals("Cat")).Select(c => c.name).ToList()).OrderBy(cn => cn).ToList()
-            }).ToList();
+            var groupedData = GetGroupedData(data);
+            DisplayData(groupedData);
+            Console.Read();
         }
 
         private static List<PetOwners> DownloadData(string url)
@@ -44,6 +40,26 @@ namespace aglct_csharpconsole
                 return JsonConvert.DeserializeObject<List<PetOwners>>(json);
             }
         }
+
+        private static List<GroupedData> GetGroupedData(List<PetOwners> doenloadedData)
+        {
+            return doenloadedData.GroupBy(x => x.gender).Select(g => new GroupedData
+            {
+                OwnerGender = g.Key,
+                Cats = g.Where(i => i.pets != null).SelectMany(o => o.pets.Where(p => p.type.Equals("Cat")).Select(c => c.name).ToList()).OrderBy(cn => cn).ToList()
+            }).ToList();
+        }
+
+        private static void DisplayData(List<GroupedData> data) {
+            foreach(var g in data)
+            {
+                Console.WriteLine(g + " :::::::");
+                foreach(var c in g.Cats)
+                {
+                    Console.WriteLine("\t * " + c);
+                }
+            }
+        }
     }
 
     public class Pet
@@ -58,5 +74,10 @@ namespace aglct_csharpconsole
         public string gender { get; set; }
         public int age { get; set; }
         public List<Pet> pets { get; set; }
+    }
+
+    public class GroupedData {
+        public string OwnerGender { get; set; }
+        public List<string> Cats { get; set; }
     }
 }
