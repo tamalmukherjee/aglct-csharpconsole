@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ namespace aglct_csharpconsole
         static void Main(string[] args)
         {
             Console.WriteLine("Please wait, searching for cats...");
-            var data = GetDataFromFile();
+            var data = DownloadData(ConfigurationManager.AppSettings["jsonURL"]);
             var groupedData = GetGroupedData(data);
             DisplayData(groupedData);
             Console.WriteLine("Press any key to exit.");
