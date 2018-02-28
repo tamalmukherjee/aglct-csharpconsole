@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.26823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aglct-csharpconsole", "aglct-csharpconsole\aglct-csharpconsole.csproj", "{D6431FD0-468A-4993-9760-E1C95FD06A12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{802044F8-AFCA-4D16-9C50-DF5976A22819}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D6431FD0-468A-4993-9760-E1C95FD06A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6431FD0-468A-4993-9760-E1C95FD06A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6431FD0-468A-4993-9760-E1C95FD06A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802044F8-AFCA-4D16-9C50-DF5976A22819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802044F8-AFCA-4D16-9C50-DF5976A22819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802044F8-AFCA-4D16-9C50-DF5976A22819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802044F8-AFCA-4D16-9C50-DF5976A22819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Net;
-
 namespace aglct_csharpconsole
 {
-    class Program
+    using System.Linq;
+    using System.Net;
+
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -43,7 +43,7 @@ namespace aglct_csharpconsole
             }
         }
 
-        private static List<GroupedData> GetGroupedData(List<PetOwners> doenloadedData)
+        public static List<GroupedData> GetGroupedData(List<PetOwners> doenloadedData)
         {
             return doenloadedData.GroupBy(x => x.gender).Select(g => new GroupedData
             {
