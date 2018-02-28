@@ -15,6 +15,7 @@ namespace aglct_csharpconsole
             var data = GetDataFromFile();
             var groupedData = GetGroupedData(data);
             DisplayData(groupedData);
+            Console.WriteLine("Press any key to exit.");
             Console.Read();
         }
 
@@ -51,14 +52,16 @@ namespace aglct_csharpconsole
         }
 
         private static void DisplayData(List<GroupedData> data) {
+            Console.WriteLine();
             foreach(var g in data)
             {
-                Console.WriteLine(g + " :::::::");
+                Console.WriteLine(g.OwnerGender);
                 foreach(var c in g.Cats)
                 {
                     Console.WriteLine("\t * " + c);
                 }
             }
+            Console.WriteLine();
         }
     }
 
